@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สำหรับบอม 💖</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Kanit', sans-serif;
+      background: linear-gradient(135deg, #ffd6e8, #fcdada);
+      overflow: hidden;
+      text-align: center;
+      color: #333;
+    }
+    h1 {
+      font-size: 3em;
+      margin-top: 60px;
+      color: #e91e63;
+    }
+    .message {
+      font-size: 1.5em;
+      margin-top: 20px;
+      padding: 0 20px;
+      color: #444;
+    }
+    .gallery {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 0 10px;
+    }
+    .gallery img {
+      width: 250px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    .hearts, .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .heart, .star {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: float 8s linear infinite;
+    }
+    .heart {
+      background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png');
+    }
+    .star {
+      background-image: url('https://cdn-icons-png.flaticon.com/512/616/616554.png');
+    }
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100vh) scale(0.5); opacity: 0; }
+    }
+    .ending-note {
+      margin-top: 50px;
+      font-size: 1.2em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>ถึงบอมคนพิเศษของเค้า 💌</h1>
+  <div class="message">
+    เค้าไม่รู้จะบอกยังไงดี ว่ามีความสุขแค่ไหนที่มีบอมอยู่ในชีวิต 💞<br>
+    ทุกวันที่มีกันและกัน คือของขวัญที่ล้ำค่าที่สุดเลยนะ 💗<br>
+    ขอบคุณที่อยู่ข้างกันเสมอ เค้ารักบอมนะ 🥺❤️
+  </div>
+
+  <div class="gallery">
+    <img src="https://tse2.mm.bing.net/th?id=OIP.Atqmzff17ip0oJbcl7Xw0wHaG8&pid=Api&P=0&h=180.pngtext=รูปที่1" alt="ภาพความทรงจำ 1">
+    <img src="https://tse1.mm.bing.net/th?id=OIP.2mzFkcv0aqQTEYQOLHeeMQHaHa&pid=Api&P=0&h=180.png?text=รูปที่2" alt="ภาพความทรงจำ 2">
+    <img src="https://tse1.mm.bing.net/th?id=OIP.J8CAMPrrIYCqAcuf6R_cqwHaHa&pid=Api&P=0&h=180.png?text=รูปที่3" alt="ภาพความทรงจำ 3">
+  </div>
+
+  <div class="ending-note">
+    ปล. เปิดหน้านี้เมื่อไหร่ ให้รู้ไว้ว่ามีคนคนนึงคิดถึงบอมเสมอเลยนะ 💭
+  </div>
+
+  <div class="hearts" id="hearts"></div>
+  <div class="stars" id="stars"></div>
+
+  <script>
+    const heartsContainer = document.getElementById('hearts');
+    const starsContainer = document.getElementById('stars');
+
+    function spawnFloating(type, container) {
+      const item = document.createElement('div');
+      item.className = type;
+      item.style.left = Math.random() * 100 + 'vw';
+      item.style.top = '100vh';
+      item.style.animationDuration = (6 + Math.random() * 4) + 's';
+      item.style.transform = `rotate(${Math.random() * 360}deg)`;
+      container.appendChild(item);
+      setTimeout(() => item.remove(), 10000);
+    }
+
+    setInterval(() => spawnFloating('heart', heartsContainer), 400);
+    setInterval(() => spawnFloating('star', starsContainer), 1200);
+  </script>
+</body>
+</html>
